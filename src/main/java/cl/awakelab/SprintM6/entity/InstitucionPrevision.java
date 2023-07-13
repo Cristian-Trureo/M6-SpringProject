@@ -12,15 +12,18 @@ public class InstitucionPrevision {
     @Id
     @Column(name="id_inst_prevision", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idInstSaludPrevision;
+    private int idInstPrevision;
+
     @Column(nullable = false)
     private String descripcion;
+
     @Column(name="porc_dcto", nullable = false)
     private float porcDcto;
 
-    @OneToMany(mappedBy = "institucion_prevision")
+    @OneToMany(mappedBy = "idInstPrevision")
     private List<Trabajador> listaTrabajadores;
 
-    @OneToMany(mappedBy = "institucion_prevision")
+    @OneToMany(mappedBy = "institucionPrevision")
     private List<Liquidacion> listaLiquidaciones;
+
 }

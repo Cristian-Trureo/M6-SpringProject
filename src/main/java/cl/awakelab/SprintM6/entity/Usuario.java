@@ -22,15 +22,17 @@ public class Usuario {
     @Column(nullable = false)
     private String apellido1;
     private String apellido2;
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name="id_perfil",nullable = false)
-    private int idPerfil;
+    @JoinColumn(name = "id_perfil", nullable = false)
+    public Perfil perfil;
     @Column(nullable = false)
     private String email;
     @Column(name="fecha_creacion",nullable = false)
     private LocalDateTime fechaCreacion;
+    @Column
     private long telefono;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "idUsuario")
     private List<Empleador> listaEmpleadores;
 }

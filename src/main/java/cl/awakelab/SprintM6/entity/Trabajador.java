@@ -23,12 +23,14 @@ public class Trabajador {
     private String apellido2;
     @Column
     private String mail;
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_prevision", nullable = false )
-    private int idInstPrevision;
+    private InstitucionPrevision idInstPrevision;
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_salud", nullable = false )
-    private int idInstSalud;
+    private InstitucionSalud idInstSalud;
     @Column
     private long telefono;
 
@@ -38,6 +40,6 @@ public class Trabajador {
             inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
     private List<Empleador> listaEmpleadores;
 
-    @OneToMany(mappedBy = "trabajador")
+    @OneToMany(mappedBy = "idTrabajador")
     private List<Liquidacion> listaLiquidaciones;
 }

@@ -25,10 +25,14 @@ public class Empleador {
     private String direccion;
     @Column
     private String email;
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_usuario",nullable = false)
-    private String idUsuario;
+    private Usuario idUsuario;
+
+    @Column
     private long telefono;
+
     @ManyToMany(mappedBy = "listaEmpleadores")
     private List<Trabajador> listaTrabajadores;
 }

@@ -1,0 +1,425 @@
+/* ***HOME HOME HOME HOME***  */
+/* ***HOME HOME HOME HOME***  */
+/* ***HOME HOME HOME HOME***  */
+/* NAVBAR  */
+.navbar-brand{
+  transition: all 0.2s;
+}
+.navbar-brand:hover{
+  transform: scale(1.2);
+}
+.boton{
+  background-color: cadetblue;
+  border: none;
+  border-radius: 4px;
+  margin: auto;
+  width: 110px;
+  >a{
+    color: white;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+/* HERO */
+.contimagen{
+  display: flex;
+  position: relative;
+  /* width: 100%; */
+  height: 80vh;
+  overflow: hidden;
+  align-items: center;
+  background: url(../images/fotohero.jpg);
+  background-attachment: fixed, scroll;
+  background-repeat: no-repeat, repeat-y;
+  background-position: center;
+  
+  >div h1{
+    color: #404040;
+    z-index: 1;
+    font-size: 60px;
+
+  }
+  >div p{
+    width: 80%;
+    font-size: 24px;
+  }
+}
+.content1{
+  display: flex;
+  flex-direction: column;
+}
+.botones{
+  margin-top: 20px;
+  >a button{
+    width: 180px;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    margin: 0 20px 0 0;
+    transition: all 0.2s;
+  }
+}
+.btn1{
+  background-color: cadetblue;
+  color: white;
+}
+.btn1:hover{
+  transform: scale(1.1);
+  /* box-shadow: 0px -2px 0.5px white; */
+  color: black;
+}
+.btn2{
+  background-color:rgb(65, 99, 121);
+  color: white;
+}
+.btn2:hover{
+  transform: scale(1.1);
+  /* box-shadow: 0px -2px 5px white; */
+  color: black;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+
+  >div{
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid rgb(214, 214, 214);
+    border-radius: 12px;
+    >h2{
+      margin:80px auto 0;
+      font-size: 40px;
+    }
+  }
+}
+
+.caracteristicas{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+.caract{
+  display: flex;
+  align-items: center;
+}
+.img{ 
+  display: flex;
+  height: 120px;
+  width: 25%;
+  align-items: center;
+  >img{
+  width: 64px;
+  /* height: 64px; */
+  }
+}
+.descripcion{
+  align-items: baseline;
+  padding: 30px;
+}
+
+.border{
+  border-radius: 12px;
+}
+
+.fondoform{
+  background-color:rgb(237, 249, 250);
+  padding: 50px 0; 
+  display: flex;
+}
+
+.formul{
+  display: flex;
+  margin: 50px auto;  
+}
+.imgform{
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+.imgform img{
+  width: 90%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: auto;
+}
+
+.formulario{
+  margin: auto;
+  width: 50%;
+  display: flex;
+}
+.formu{
+  width: 90%;
+  margin: auto;
+}
+
+
+/* FOOTER  */
+.derechos {
+  display: flex;
+  flex-direction: column;
+  background-color: cadetblue;
+}
+
+.derechos p {
+  color: dark;
+  margin: auto;
+  font-weight: lighter;
+  padding: 10px 0 10px;
+}
+
+.crist a {
+  color: white;
+  font-weight: bolder;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+.crist a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: cyan;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.crist a:hover:after {
+  transform: scale(1);
+  transform-origin: bottom left;
+}
+
+.github{
+  margin: auto;
+  padding-top:15px ;
+  margin-bottom: -5px;
+}
+.github a{
+  color: #fff;
+  padding: 0px 25px ;
+  font-size: 25px;
+}
+
+.github a:hover{
+  color: cyan;
+}
+
+/* ***PÁGINA DE REGISTRO***  */
+/* ***PÁGINA DE REGISTRO***  */
+.boton2{
+  border: none;
+  width: 100%;
+  border-radius: 4px;
+  padding: 5px 0;
+  margin-top: 15px;
+  color: white;
+  background-color: cadetblue;
+  transition: all .3s;
+}
+
+.boton2:hover{
+  background-color: rgb(65, 99, 121);
+  color: white;
+}
+
+.formu2{
+  width: 30%;
+  margin: auto;
+}
+.radios{
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#uAdministrador:checked{
+  background-color: cadetblue;
+  border: none;
+}
+#uContador:checked{
+  background-color: cadetblue;
+}
+#uEmpleador:checked{
+  background-color: cadetblue;
+}
+
+/* ***PÁGINA INICIAR SESIÓN***  */
+/* ***PÁGINA INICIAR SESIÓN***  */
+
+.user{  
+  text-align: center;
+  margin: 30px auto;
+  padding-top: 5px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(to top left,
+      #cdd7f3 15%,
+      cadetblue 75%);
+  background-size: 200% 200%;
+  animation: movimiento 3s linear infinite alternate;
+  >img{
+  height: 50px;
+  }
+  >img:hover{
+    rotate: 360;
+  }
+}
+@keyframes movimiento {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}
+.altern {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.altern > p a {
+  font-weight: 500;
+  color: #797979;
+  text-decoration: none;
+  position: relative;
+}
+
+.altern > p a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #797979;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease;
+}
+
+.altern > p a:hover::after {
+  transform: scaleX(1);
+}
+
+/* *** PÁGINA BIENVENIDA ***  */
+/* *** PÁGINA BIENVENIDA ***  */
+
+.menubienvenida{
+  display: grid;
+  gap:1rem;
+  grid-auto-rows: 6rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, .7fr));
+  
+}
+.detalle{
+  font-weight: lighter;
+  margin: 80px auto;
+  padding:20px 0;
+  >span{
+    font-weight: bold;
+    color: cadetblue;
+  }
+}
+
+
+/* *** MEDIA QUERIES MEDIA QUERIES *** */
+/* *** MEDIA QUERIES MEDIA QUERIES *** */
+
+/* *** 1300 1300 1300 1300 1300 1300 *** */
+@media (max-width:1300px){
+
+  .formu2{
+    width: 50%;
+  }
+}
+
+/* *** 768 768 768 768 768 768 ***  */
+@media (max-width:768px){
+
+
+
+
+  .formul{
+    flex-direction: column;
+  }
+
+  .imgform{
+    width: 90%;
+    margin: auto;
+  }
+
+  .formulario{
+    margin: auto;
+    width: 100%;
+    display: flex;
+  }
+  .formu{
+    width: 80%;
+    margin:40px auto;
+  }
+
+  .contimagen{
+    height: 100vh;
+    >div h1{
+      font-size: 40px;
+    }
+  }
+
+  main{
+    padding: 10px;
+  }
+  .caracteristicas{
+    padding: 10px;
+  }
+
+  .caract{
+    
+    flex-direction: column;
+    align-items: center;
+  }
+  .img{ 
+    display: flex;
+    height: 120px;
+    /* width: 25%; */
+    
+    >img{
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    }
+  }
+  .descripcion{
+    /* align-items: baseline;
+    padding: 30px; */
+  }
+  
+  .border{
+    /* border-radius: 12px; */
+  }
+
+  .clase{
+    border: none;
+  }
+  /* pagina registro */
+  .boton2{
+
+  }
+
+  .formu2{
+    width: 80%;
+  }
+}
+
+
+
