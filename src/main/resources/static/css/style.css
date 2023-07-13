@@ -316,6 +316,7 @@ main{
 /* *** PÁGINA BIENVENIDA ***  */
 
 .menubienvenida{
+  margin: auto;
   display: grid;
   gap:1rem;
   grid-auto-rows: 6rem;
@@ -346,9 +347,6 @@ main{
 
 /* *** 768 768 768 768 768 768 ***  */
 @media (max-width:768px){
-
-
-
 
   .formul{
     flex-direction: column;
@@ -384,10 +382,10 @@ main{
   }
 
   .caract{
-    
     flex-direction: column;
     align-items: center;
   }
+
   .img{ 
     display: flex;
     height: 120px;
@@ -399,26 +397,16 @@ main{
     margin: auto;
     }
   }
-  .descripcion{
-    /* align-items: baseline;
-    padding: 30px; */
-  }
-  
-  .border{
-    /* border-radius: 12px; */
-  }
 
   .clase{
     border: none;
   }
+
   /* pagina registro */
-  .boton2{
-
-  }
-
   .formu2{
     width: 80%;
   }
+
 }
 
 
