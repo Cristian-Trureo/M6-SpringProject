@@ -14,7 +14,7 @@ public class InstitucionPrevision {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idInstPrevision;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String descripcion;
 
     @Column(name="porc_dcto", nullable = false)

@@ -9,10 +9,10 @@ import java.util.List;
 @Table(name="perfil")
 public class Perfil {
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, name = "id_perfil")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_perfil;
-    @Column(nullable = false)
+    private int idPerfil;
+    @Column(nullable = false, length = 50)
     private String descripcion;
     @Column(nullable = false)
     private boolean estado;

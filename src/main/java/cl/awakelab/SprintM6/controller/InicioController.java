@@ -10,12 +10,6 @@ public class InicioController {
         return "index";
     }
 
-    @GetMapping("/registro")
-    public String registro(){ return "registro";}
 
-    @GetMapping("/iniciosesion")
-    public String iniciarsesion(){ return "inicioSesion";}
 
-    @GetMapping("/bienvenido")
-    public String bienvenido(){ return "bienvenido";}
 }

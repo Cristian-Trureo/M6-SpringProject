@@ -21,7 +21,7 @@ public class Liquidacion {
     @Column(name="sueldo_imponible",nullable = false)
     private int sueldoImponible;
     @Column(name="sueldo_liquido",nullable = false)
-    private int sueldoLiquiedo;
+    private int sueldoLiquido;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_salud",nullable = false)
@@ -31,7 +31,7 @@ public class Liquidacion {
     private int montoInstSalud;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name="institucionPrevision",nullable = false)
+    @JoinColumn(name="id_inst_previsional",nullable = false)
     private InstitucionPrevision institucionPrevision;
 
     @Column(name="monto_inst_previsional",nullable = false)

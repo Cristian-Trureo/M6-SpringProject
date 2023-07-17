@@ -15,21 +15,21 @@ public class Trabajador {
     private int idTrabajador;
     @Column(nullable = false, unique = true)
     private int run;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nombre;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "apellido_1", length = 100)
     private String apellido1;
-    @Column(nullable = false)
+    @Column(name = "apellido_2", length = 100)
     private String apellido2;
-    @Column
-    private String mail;
+    @Column(name="email", length = 100)
+    private String email;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_prevision", nullable = false )
     private InstitucionPrevision idInstPrevision;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name="id_inst_salud", nullable = false )
+    @JoinColumn(name="id_inst_salud", nullable = false)
     private InstitucionSalud idInstSalud;
     @Column
     private long telefono;

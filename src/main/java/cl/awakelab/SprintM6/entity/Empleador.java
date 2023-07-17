@@ -15,15 +15,15 @@ public class Empleador {
     private int idEmpleador;
     @Column(nullable = false, unique = true)
     private int run;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nombre;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "apellido_1", length = 100)
     private String apellido1;
-    @Column(nullable = false)
+    @Column(name = "apellido_2", length = 100)
     private String apellido2;
-    @Column
+    @Column(columnDefinition = "TEXT",length = 500)
     private String direccion;
-    @Column
+    @Column(length = 100)
     private String email;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)

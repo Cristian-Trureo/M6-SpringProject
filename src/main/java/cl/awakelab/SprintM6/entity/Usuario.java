@@ -13,20 +13,21 @@ public class Usuario {
     @Column(name="id_usuario",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private int run;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 200)
     private String clave;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String nombre;
-    @Column(nullable = false)
+    @Column(name="apellido_1", nullable = false, length = 100)
     private String apellido1;
+    @Column(name="apellido_2", length = 100)
     private String apellido2;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false)
     public Perfil perfil;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String email;
     @Column(name="fecha_creacion",nullable = false)
     private LocalDateTime fechaCreacion;
