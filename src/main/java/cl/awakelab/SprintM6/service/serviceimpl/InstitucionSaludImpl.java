@@ -1,4 +1,4 @@
 package cl.awakelab.SprintM6.service.serviceimpl;
 
-public class InstitucionSalud {
+public class InstitucionSaludImpl {
 }

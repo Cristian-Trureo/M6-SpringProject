@@ -25,23 +25,19 @@ public class Usuario {
     @Column(name="apellido_2", length = 100)
     private String apellido2;
 
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_perfil", nullable = false)
-    @JsonIgnore
-    public Perfil perfil;
-    @Transient
-    public String getDescripcionPerfil() {
-        return perfil != null ? perfil.getDescripcion() : "";
-    }
-    public void setDescripcionPerfil(String descripcionPerfil) {
-        //
-    }
+
     @Column(nullable = false, length = 100)
     private String email;
     @Column(name="fecha_creacion",nullable = false)
     private LocalDateTime fechaCreacion;
+
     @Column
     private long telefono;
+
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_perfil", nullable = false)
+    @JsonIgnore
+    public Perfil perfil;
 
     @OneToMany(mappedBy = "idUsuario")
     private List<Empleador> listaEmpleadores;

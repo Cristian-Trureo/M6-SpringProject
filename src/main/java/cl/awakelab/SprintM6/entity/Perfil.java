@@ -1,4 +1,5 @@
 package cl.awakelab.SprintM6.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,9 @@ public class Perfil {
         return estado;
     }
 
+
     @OneToMany(mappedBy = "perfil")
+    @JsonIgnore
     private List<Usuario> listaUsuarios;
+
 }
