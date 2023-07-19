@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -13,27 +13,7 @@
 
 </head>
 <body class="m-0">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-        <div class="container ">
-          <a class="navbar-brand" href="#"><img style="height: 35px;" src="/images/O35LUK1-01.png" alt=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav  ms-auto ">
-              <li class="nav-item m-auto">
-                <a class="nav-link active" aria-current="Home" href="#">Home</a>
-              </li>
-              <li  class="nav-item m-auto">
-                <a style="margin-right: 6px;" class="nav-link" href="/registro">Registrarse</a>
-              </li>
-              <li class="nav-item boton ">
-                <a class="nav-link" href="/login">Iniciar Sesión</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <nav th:replace="~{../static/html/nav.html :: nav}"></nav>
 
       <!-- header.. hero?  -->
       <header class="contimagen">
@@ -112,16 +92,7 @@
         </section>
     </div>
 
-    <footer style="margin-top: 0px; height: 190px; " class="derechos">
-
-        <h3 class="mt-5 m-auto text-light"><b>Sprint Módulo 6</b></h3>
-        <div class="github">
-          <a target="_blank" href="https://github.com/Cristian-Trureo"><i class="bi bi-github"></i></a>    
-        </div>
-        <p>©BootcampJava2023 | All Rights Reserved | Developed by <span class="crist"><a target="_blank"
-              href="https://www.linkedin.com/in/cristian-trureo-gabello/">Cristian Trureo</a></span></p>
-    
-      </footer>
+    <footer th:replace="~{../static/html/footer.html :: footer}"></footer>
 
 
 

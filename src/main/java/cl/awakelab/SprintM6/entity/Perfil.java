@@ -16,6 +16,9 @@ public class Perfil {
     private String descripcion;
     @Column(nullable = false)
     private boolean estado;
+    public boolean getEstado() {
+        return estado;
+    }
 
     @OneToMany(mappedBy = "perfil")
     private List<Usuario> listaUsuarios;

@@ -237,7 +237,7 @@ main{
 .radios{
   margin: 10px auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 #uAdministrador:checked{
@@ -337,9 +337,30 @@ main{
   margin: auto;
 }
 
+/* *** LISTA DE USUARIOS LISTA DE USUARIOS ***  */
+/* *** LISTA DE USUARIOS LISTA DE USUARIOS ***  */
+/* *** LISTA DE USUARIOS LISTA DE USUARIOS ***  */
 
-/* *** MEDIA QUERIES MEDIA QUERIES *** */
-/* *** MEDIA QUERIES MEDIA QUERIES *** */
+.listusers{
+  >thead{
+    >tr{
+      >th{
+        background-color: rgb(65, 99, 121);
+        color: white;
+      }
+    }
+  }
+}
+
+.accion{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+/* *** MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES *** */
+/* *** MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES MEDIA QUERIES *** */
 
 /* *** 1300 1300 1300 1300 1300 1300 *** */
 @media (max-width:1300px){

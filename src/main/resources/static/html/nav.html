@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container ">
+        <a class="navbar-brand" href="/"><img style="height: 35px;" src="/images/O35LUK1-01.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav  ms-auto ">
+                <li class="nav-item m-auto">
+                    <a class="nav-link" th:classappend="${paginaActual == '/' ? 'active' : ''}" href="/">Inicio</a>
+                </li>
+                <li class="nav-item m-auto">
+                    <a style="margin-right: 6px;" class="nav-link" th:classappend="${paginaActual == 'registro' ? 'active' : ''}" href="/usuario/registro">Registrarse</a>
+                </li>
+                <li class="nav-item boton ">
+                    <a class="nav-link" th:classappend="${paginaActual == 'login' ? 'active' : ''}" href="/login">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

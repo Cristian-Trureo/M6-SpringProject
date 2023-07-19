@@ -1,5 +1,6 @@
 package cl.awakelab.SprintM6.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -26,7 +27,15 @@ public class Usuario {
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false)
+    @JsonIgnore
     public Perfil perfil;
+    @Transient
+    public String getDescripcionPerfil() {
+        return perfil != null ? perfil.getDescripcion() : "";
+    }
+    public void setDescripcionPerfil(String descripcionPerfil) {
+        //
+    }
     @Column(nullable = false, length = 100)
     private String email;
     @Column(name="fecha_creacion",nullable = false)
