@@ -65,8 +65,6 @@
   color: white;
 }
 .btn1:hover{
-  transform: scale(1.1);
-  /* box-shadow: 0px -2px 0.5px white; */
   color: black;
 }
 .btn2{
@@ -74,8 +72,6 @@
   color: white;
 }
 .btn2:hover{
-  transform: scale(1.1);
-  /* box-shadow: 0px -2px 5px white; */
   color: black;
 }
 
@@ -355,6 +351,24 @@ main{
 .accion{
   display: flex;
   justify-content: space-evenly;
+}
+.accion button{
+  border: none;
+  background-color: white;
+  border-radius: 4px;
+  transition: all .3s;
+}
+.accion button:hover{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.edit{
+  color: cadetblue;
+  font-size: 16px;
+}
+
+.delete{
+  color:rgb(65, 99, 121);
+  font-size: 16px;
 }
 
 

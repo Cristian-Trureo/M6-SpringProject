@@ -1,14 +1,13 @@
 package cl.awakelab.SprintM6.controller;
 
+import cl.awakelab.SprintM6.entity.Perfil;
 import cl.awakelab.SprintM6.entity.Usuario;
+import cl.awakelab.SprintM6.service.IPerfilService;
 import cl.awakelab.SprintM6.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +19,7 @@ public class UsuarioController {
 
     @Autowired
     IUsuarioService objUsuarioService;
+
     @GetMapping("/registrar")
     public String mostrarRegistro(Model model) {
         model.addAttribute("paginaActual", "registrar");
@@ -46,5 +46,21 @@ public class UsuarioController {
         return "listausuarios";
     }
 
+    @GetMapping("/editar/{idUsuario}")
+    public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model){
+        Usuario usuarioParaEditar = objUsuarioService.buscarUsuarioPorId(idUsuario);
+        model.addAttribute("usuario", usuarioParaEditar);
+        return "editarUsuario";
+    }
+    @PostMapping("/editar/{idUsuario}")
+    public String actualizarUsuario(@PathVariable int idUsuario, @ModelAttribute Usuario usuario){
+        objUsuarioService.actualizarUsuario(usuario, idUsuario);
+        return "redirect:/usuario/usuarios";
+    }
 
+    @PostMapping("/eliminar/{idUsuario}")
+    public String eliminarUsuario(@PathVariable int idUsuario){
+        objUsuarioService.eliminarUsuario(idUsuario);
+        return "redirect:/usuario/usuarios";
+    }
 }

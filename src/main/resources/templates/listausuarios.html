@@ -22,9 +22,9 @@
 
 <div class="container pt-5">
   <h3 class="text-center mb-5">LISTA DE USUARIOS</h3>
-  <button class="btn1 boton mb-4 p-2" style="width: 150px; transform: none;">
+  <a href="/usuario/crearUsuario"><button class="btn1 boton mb-4 p-2" style="width: 150px; transform: none;">
     Agregar usuario
-  </button>
+  </button></a>
   <table class="table table-bordered listusers text-center">
     <thead class="" >
     <tr>
@@ -45,7 +45,14 @@
       <td th:text="${usuario.apellido1}"></td>
       <td th:text="${usuario.email}"></td>
       <td th:text="${usuario.perfil.descripcion}"></td>
-      <td class="accion"><i class="bi bi-pencil-square"></i><i class="bi bi-trash3-fill"></i></td>
+      <td class="accion">
+        <form th:action="@{/usuario/editar/{idUsuario}(idUsuario=${usuario.idUsuario})}" method="get">
+          <button><i class="bi bi-pencil-square edit"></i></button>
+        </form>
+        <form th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}" method="post">
+          <button type="submit"><i class="bi bi-trash3-fill delete"></i></button>
+        </form>
+      </td>
     </tr>
     </tbody>
   </table>

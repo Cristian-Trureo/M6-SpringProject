@@ -1,6 +1,7 @@
 package cl.awakelab.SprintM6.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -25,6 +26,15 @@ public class Usuario {
     @Column(name="apellido_2", length = 100)
     private String apellido2;
 
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_perfil", nullable = false)
+    @JsonManagedReference
+    //@JsonIgnore
+    public Perfil perfil;
+/*    @Transient
+    public String getDescripcionPerfil() {
+        return perfil.getDescripcion();
+    }*/
 
     @Column(nullable = false, length = 100)
     private String email;
@@ -33,11 +43,6 @@ public class Usuario {
 
     @Column
     private long telefono;
-
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_perfil", nullable = false)
-    @JsonIgnore
-    public Perfil perfil;
 
     @OneToMany(mappedBy = "idUsuario")
     private List<Empleador> listaEmpleadores;

@@ -24,7 +24,8 @@ public class UsuarioRestController {
     @GetMapping
     public List<Usuario> listarUsuarios() {
         List<Usuario> usuarios = objUsuarioservice.listarUsuarios();
-      //  usuarios.forEach(usuario -> usuario.setDescripcionPerfil(usuario.getDescripcionPerfil()));
+        // usuarios.forEach(usuario -> usuario.getDescripcionPerfil());
+        // usuarios.forEach(usuario -> usuario.getPerfil().getDescripcion());
         return usuarios;
     }
     @PutMapping("/{idUsuario}")

@@ -1,4 +1,5 @@
 package cl.awakelab.SprintM6.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,7 +24,8 @@ public class Perfil {
 
 
     @OneToMany(mappedBy = "perfil")
-    @JsonIgnore
+    @JsonBackReference
+    //@JsonIgnore
     private List<Usuario> listaUsuarios;
 
 }
