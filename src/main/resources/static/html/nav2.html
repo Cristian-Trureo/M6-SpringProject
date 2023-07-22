@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse " id="navbarNav">
       <ul class="navbar-nav  ms-auto ">
         <li class="nav-item m-auto">
-          <a class="nav-link" th:classappend="${paginaActual == '/' ? 'active' : ''}" href="/">Inicio</a>
+          <a class="nav-link" th:classappend="${paginaActual == 'bienvenido' ? 'active' : ''}" href="/bienvenido">Home</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -25,8 +25,8 @@
             Empleador
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Agregar empleador</a></li>
-            <li><a class="dropdown-item" href="#">Ver empleadores</a></li>
+            <li><a class="dropdown-item" href="/empleador/crearEmpleador">Agregar empleador</a></li>
+            <li><a class="dropdown-item" href="/empleador/empleadores">Ver empleadores</a></li>
           </ul>
         </li>
 
@@ -51,7 +51,7 @@
         </li>
 
         <li class="nav-item boton ">
-          <a  class="nav-link" th:classappend="${paginaActual == 'login' ? 'active' : ''}" href="/login">Cerrar Sesión</a>
+          <a  class="nav-link" th:classappend="${paginaActual == '/' ? 'active' : ''}" href="/">Cerrar Sesión</a>
         </li>
       </ul>
     </div>

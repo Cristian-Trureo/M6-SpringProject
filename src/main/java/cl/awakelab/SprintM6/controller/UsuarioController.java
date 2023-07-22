@@ -1,8 +1,6 @@
 package cl.awakelab.SprintM6.controller;
 
-import cl.awakelab.SprintM6.entity.Perfil;
 import cl.awakelab.SprintM6.entity.Usuario;
-import cl.awakelab.SprintM6.service.IPerfilService;
 import cl.awakelab.SprintM6.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

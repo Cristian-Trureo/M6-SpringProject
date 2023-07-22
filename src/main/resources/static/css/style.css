@@ -6,7 +6,7 @@
   transition: all 0.2s;
 }
 .navbar-brand:hover{
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 .boton{
   background-color: cadetblue;
@@ -310,18 +310,67 @@ main{
 
 /* *** PÁGINA BIENVENIDA ***  */
 /* *** PÁGINA BIENVENIDA ***  */
+.centrate{
+  margin: auto;
+  display: flex;
+}
 
 .menubienvenida{
+  display: flex;
+  justify-content: space-evenly;
   margin: auto;
-  display: grid;
-  gap:1rem;
-  grid-auto-rows: 6rem;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, .7fr));
-  
+  gap: 15px;
 }
+.parbtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+>a{
+  margin: auto;
+>button{
+  margin: auto;
+  border: none;
+  background: cadetblue;
+  color: white;
+  height:65px;
+  width:250px;
+  margin:15px auto;
+  border-radius: 6px;
+  transition:all .3s;
+>h6{
+  margin: 0 auto;
+  padding: 0 auto;
+}
+}
+}
+}
+.parbtn a button:hover{
+  background:rgb(65, 99, 121);
+}
+@media (max-width:1200px) {
+  .menubienvenida{
+    flex-direction: column;
+  }
+  .parbtn{
+    gap: 20px;
+    margin: auto;
+    flex-direction: row;
+  }
+}
+@media (max-width:576px) {
+  .parbtn{
+    flex-direction: column;
+    margin: auto;
+
+  }
+
+}
+
+
 .detalle{
   font-weight: lighter;
-  margin: 80px auto;
+  margin: 90px auto;
   padding:20px 0;
   >span{
     font-weight: bold;
@@ -329,9 +378,7 @@ main{
   }
 }
 
-.centrate{
-  margin: auto;
-}
+
 
 /* *** LISTA DE USUARIOS LISTA DE USUARIOS ***  */
 /* *** LISTA DE USUARIOS LISTA DE USUARIOS ***  */

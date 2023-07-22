@@ -44,6 +44,6 @@ public class Usuario {
     @Column
     private long telefono;
 
-    @OneToMany(mappedBy = "idUsuario")
+    @OneToMany(mappedBy = "idUsuario", cascade = CascadeType.ALL)
     private List<Empleador> listaEmpleadores;
 }
