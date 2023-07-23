@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Registro Trabajador</title>
     <link rel="stylesheet" href="../css/style.css">
     <!-- *** Bootstrap *** -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,8 +19,8 @@
 
 <!-- *** FORMULARIO *** -->
 
-<form th:action="@{/empleador/crearEmpleador}" method="post" class="formu2 mt-5">
-    <h3 class="text-center mb-4">Registro de Empleador</h3>
+<form th:action="@{/trabajador/crearTrabajador}" method="post" class="formu2 mt-5">
+    <h3 class="text-center mb-4">Registro de Trabajador</h3>
     <div class="mb-3">
         <label for="run" class="form-label">Run*</label>
         <input required type="number" class="form-control" id="run" name="run" placeholder="12543789">
@@ -38,15 +38,15 @@
     <input required type="text" class="form-control" id="apellido2" name="apellido2" placeholder="apellido">
   </div>
     <div class="mb-3">
-        <label for="usuario">Usuario</label>
-        <select class="form-select" id="usuario" aria-label="Default select example" name="idUsuario">
-            <option th:value="${null}" selected>Selecciona un usuario</option>
-            <option th:each="usuario : ${listaUsuarios}" th:value="${usuario.idUsuario}" th:text="${usuario.nombre} + ' ' + ${usuario.apellido1}"></option>
+        <label for="empleador">Empleador</label>
+        <select class="form-select" id="empleador" aria-label="Default select example" name="idEmpleador">
+            <option th:value="${null}" selected>Selecciona empleador</option>
+            <option th:each="empleador : ${listaEmpleadores}" th:value="${empleador.idEmpleador}" th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"></option>
         </select>
     </div>
     <div class="mb-3">
         <label for="direccion" class="form-label">Dirección</label>
-        <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion">
+        <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion 17">
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email*</label>
@@ -56,8 +56,23 @@
         <label for="telefono" class="form-label">Teléfono</label>
         <input required type="number" class="form-control" id="telefono" name="telefono" placeholder="83135666">
     </div>
+
+    <div class="mb-3">
+        <label for="idInstSalud">Insitución Salud</label>
+        <select class="form-select" id="idInstSalud" aria-label="Default select example" name="idInstSalud">
+            <option th:value="${null}" selected>Selecciona institución salud</option>
+            <option th:each="institucionSalud : ${listaInstitucionSalud}" th:value="${institucionSalud.idInstSalud}" th:text="${institucionSalud.descripcion}"></option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="idInstPrevision">AFP</label>
+        <select class="form-select" id="idInstPrevision" aria-label="Default select example" name="idInstPrevision">
+            <option th:value="${null}" selected>Selecciona AFP</option>
+            <option th:each="institucionPrevision : ${listaInstitucionesPrevision}" th:value="${institucionPrevision.idInstPrevision}" th:text="${institucionPrevision.descripcion}"></option>
+        </select>
+    </div>
     <div class="subm">
-        <button type="submit" class="boton2">Registrar Empleador</button>
+        <button type="submit" class="boton2">Registrar Trabajador</button>
     </div>
 </form>
 

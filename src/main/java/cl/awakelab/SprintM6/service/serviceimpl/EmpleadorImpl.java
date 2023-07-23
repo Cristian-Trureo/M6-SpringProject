@@ -38,6 +38,7 @@ public class EmpleadorImpl implements IEmpleadorService {
         empleador.setDireccion(empleadorActualizar.getDireccion());
         empleador.setEmail(empleadorActualizar.getEmail());
         empleador.setTelefono(empleadorActualizar.getTelefono());
+        empleador.setIdUsuario(empleadorActualizar.getIdUsuario());
 
 
         return objEmpleadorRepo.save(empleador);

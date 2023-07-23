@@ -35,6 +35,4 @@ public class EmpleadorRestController {
         objEmpleadorservice.eliminarEmpleador(idEmpleador);
     }
 
-
-
 }

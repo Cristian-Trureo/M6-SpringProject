@@ -23,6 +23,8 @@ public class Trabajador {
     private String apellido2;
     @Column(name="email", length = 100)
     private String email;
+    @Column
+    private long telefono;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_prevision", nullable = false )
@@ -31,8 +33,7 @@ public class Trabajador {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_salud", nullable = false)
     private InstitucionSalud idInstSalud;
-    @Column
-    private long telefono;
+
 
     @ManyToMany
     @JoinTable(name = "empl_trab",
