@@ -53,6 +53,7 @@ public class EmpleadorController {
     public String actualizarEmpleador(@PathVariable int idEmpleador, @ModelAttribute Empleador empleador){
         objEmpleadorService.actualizarEmpleador(empleador, idEmpleador);
         return "redirect:/empleador/empleadores";
+
     }
 
     @PostMapping("/eliminar/{idEmpleador}")

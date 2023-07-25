@@ -38,16 +38,20 @@
     <input required type="text" class="form-control" id="apellido2" name="apellido2" placeholder="apellido">
   </div>
     <div class="mb-3">
-        <label for="empleador">Empleador</label>
-        <select class="form-select" id="empleador" aria-label="Default select example" name="idEmpleador">
+        <label for="empleadores">Empleador</label>
+        <select class="form-select" id="empleadores" aria-label="Designar a un empleador" multiple name="empleadores">
             <option th:value="${null}" selected>Selecciona empleador</option>
-            <option th:each="empleador : ${listaEmpleadores}" th:value="${empleador.idEmpleador}" th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"></option>
+            <option
+                    th:each="empleador : ${listaEmpleadores}"
+                    th:value="${empleador.idEmpleador}"
+                    th:text="${empleador.nombre} + ' ' + ${empleador.apellido1}"
+            ></option>
         </select>
     </div>
-    <div class="mb-3">
+<!--    <div class="mb-3">
         <label for="direccion" class="form-label">Dirección</label>
         <input required type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion 17">
-    </div>
+    </div>-->
     <div class="mb-3">
         <label for="email" class="form-label">Email*</label>
         <input required type="email" class="form-control" id="email" name="email" placeholder="name@email.com">

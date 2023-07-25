@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,7 +40,13 @@ public class TrabajadorController {
         return "crearTrabajador";
     }
     @PostMapping("/crearTrabajador")
-    public String crearTrabajador(@ModelAttribute Trabajador trabajador){
+    public String crearTrabajador(@ModelAttribute Trabajador trabajador, @RequestParam("empleadores") List<Integer> idsEmpleadores){
+        List<Empleador>empleadores= new ArrayList<>();
+        for(Integer idEmpleador : idsEmpleadores){
+            Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
+            empleadores.add(empleador);
+        }
+        trabajador.setListaEmpleadores(empleadores);
         objTrabajadorService.crearTrabajador(trabajador);
         return "redirect:/trabajador/trabajadores";
     }
@@ -50,11 +57,40 @@ public class TrabajadorController {
         model.addAttribute("trabajadores", listaTrabajadores);
         return "listatrabajadores";
     }
-
+    @GetMapping("/editar/{idTrabajador}")
+    public String mostrarFormularioEditarTrabajador(@PathVariable int idTrabajador, Model model){
+        Trabajador trabajadorParaEditar = objTrabajadorService.buscarTrabajadorPorId(idTrabajador);
+        model.addAttribute("trabajador",trabajadorParaEditar);
+        List<Empleador> listaEmpleadores = objEmpleadorService.listarEmpleadores();
+        List<Integer> idsEmpleadoresDesignados = new ArrayList<>();
+        for(Empleador empleador : trabajadorParaEditar.getListaEmpleadores()){
+            idsEmpleadoresDesignados.add(empleador.getIdEmpleador());
+        }
+        model.addAttribute("listaEmpleadores",listaEmpleadores);
+        model.addAttribute("idsEmpleadores", idsEmpleadoresDesignados);
+        List<InstitucionPrevision> listaInstitucionesPrevision = objInstitucionPrevisionService.listarInstitucionesPrevision();
+        model.addAttribute("listaInstitucionesPrevision", listaInstitucionesPrevision);
+        List<InstitucionSalud> listaInstitucionSalud = objInstitucionSaludService.listarInstitucionesSalud();
+        model.addAttribute("listaInstitucionSalud", listaInstitucionSalud);
+        return "editarTrabajador";
+    }
+    @PostMapping("/editar/{idTrabajador}")
+    public String actualizarTrabajador(@PathVariable int idTrabajador, @ModelAttribute Trabajador trabajador, @RequestParam("empleadores") List<Integer> idsEmpleadores){
+        List<Empleador> empleadores = new ArrayList<>();
+        for(Integer idEmpleador: idsEmpleadores){
+            Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
+            empleadores.add(empleador);
+        }
+        trabajador.setListaEmpleadores(empleadores);
+        trabajador.setIdTrabajador(idTrabajador);
+        objTrabajadorService.actualizarTrabajador(trabajador, idTrabajador);
+        return "redirect:/trabajador/trabajadores";
+    }
 
     @PostMapping("/eliminar/{idtrabajador}")
     public String eliminarTrabajador(@PathVariable int idtrabajador){
         objTrabajadorService.eliminarTrabajador(idtrabajador);
         return "redirect:/trabajador/trabajadores";
     }
+
 }
