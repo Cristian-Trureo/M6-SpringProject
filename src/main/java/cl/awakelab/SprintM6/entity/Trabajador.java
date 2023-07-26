@@ -2,6 +2,7 @@ package cl.awakelab.SprintM6.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -28,10 +29,12 @@ public class Trabajador {
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_prevision", nullable = false )
+    @ToString.Exclude
     private InstitucionPrevision idInstPrevision;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_inst_salud", nullable = false)
+    @ToString.Exclude
     private InstitucionSalud idInstSalud;
 
 
@@ -42,5 +45,6 @@ public class Trabajador {
     private List<Empleador> listaEmpleadores;
 
     @OneToMany(mappedBy = "idTrabajador")
+    @ToString.Exclude
     private List<Liquidacion> listaLiquidaciones;
 }

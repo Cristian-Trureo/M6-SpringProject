@@ -44,8 +44,8 @@
     <tbody>
     <tr th:each="liquidacion: ${liquidaciones}">
       <th th:text="${liquidacion.idLiquidacion}"></th>
-      <td th:text="${liquidacion.idTrabajador}"></td>
-      <td th:text="${liquidacion.getIdTrabajador().nombre}"></td>
+      <td th:text="${liquidacion.idTrabajador.run}"></td>
+      <td th:text="${liquidacion.idTrabajador.nombre}"></td>
       <td th:text="${liquidacion.sueldoImponible}"></td>
       <td th:text="${liquidacion.sueldoLiquido}"></td>
       <td class="accion">
@@ -66,11 +66,6 @@
   </table>
 
 </div>
-
-<!--<div style="height: 300px;" class="espace">
-  <p></p>
-</div>-->
-<!-- FOOTER FOOTER  -->
 
 <footer th:replace="~{../static/html/footer.html :: footer}"></footer>
 

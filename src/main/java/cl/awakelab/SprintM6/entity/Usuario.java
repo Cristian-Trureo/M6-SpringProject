@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,8 +30,9 @@ public class Usuario {
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false)
-    @JsonManagedReference
+    //@JsonManagedReference
     //@JsonIgnore
+    @ToString.Exclude
     public Perfil perfil;
 
     @Column(nullable = false, length = 100)
@@ -41,5 +44,6 @@ public class Usuario {
     private long telefono;
 
     @OneToMany(mappedBy = "idUsuario", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Empleador> listaEmpleadores;
 }
