@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Liquidacion</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- *** Bootstrap *** -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- *** BOOTSTRAP ICONS*** -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- *** favicon ***  -->
+    <link rel="icon" type="image/png" href="../images/O35LUK1w-03.png">
+</head>
+
+<body class="m-0">
+<nav th:replace="~{../static/html/nav2.html :: nav}"></nav>
+
+<!-- *** FORMULARIO *** -->
+
+<form th:action="@{/liquidacion/crearLiquidacion}" method="post" class="formu2 mt-5">
+    <h3 class="text-center mb-4">Registro de Liquidaciones</h3>
+    <div class="mb-3">
+        <label for="trabajador">Trabajador</label>
+        <select required class="form-select" id="trabajador" aria-label="Designar a trabajador" name="trabajador">
+            <option th:value="${null}" selected>Selecciona trabajador</option>
+            <option
+                    th:each="trabajador : ${listaTrabajadores}"
+                    th:value="${trabajador.idTrabajador}"
+                    th:text="${trabajador.nombre} + ' ' + ${trabajador.apellido1}"
+
+            ></option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="sueldoImponible" class="form-label">Sueldo Imponible</label>
+        <input required type="number" class="form-control" id="sueldoImponible" name="sueldoImponible" placeholder="000">
+    </div>
+
+    <div class="mb-3">
+        <label for="periodo" class="form-label">Período</label>
+        <input required type="date" class="form-control" id="periodo" name="periodo">
+    </div>
+
+    <div class="mb-3">
+        <label for="idInstSalud">Institución Salud</label>
+        <select required class="form-select" id="idInstSalud" aria-label="Default select example" name="idInstSalud">
+            <option th:value="${null}" selected>Institución salud</option>
+            <option
+                    th:each="institucionSalud : ${listaInstitucionSalud}"
+                    th:value="${institucionSalud.idInstSalud}"
+                    th:text="${institucionSalud.descripcion}"
+                    th:data-porc-dcto="${institucionSalud.porcDcto}"></option>
+        </select>
+    </div>
+
+<!--    SUELDO IMPONIBLE * %FONASA-->
+    <div class="mb-3">
+        <label for="montoInstSalud" class="form-label">Monto Salud</label>
+        <input required type="number" class="form-control" id="montoInstSalud" name="montoInstSalud" placeholder="000">
+    </div>
+
+    <div class="mb-3">
+        <label for="institucionPrevision">AFP</label>
+        <select required class="form-select" id="institucionPrevision" aria-label="Default select example" name="institucionPrevision">
+            <option  th:value="${null}" selected>Selecciona AFP</option>
+            <option
+                    th:each="institucionPrevision : ${listaInstitucionesPrevision}"
+                    th:value="${institucionPrevision.idInstPrevision}"
+                    th:text="${institucionPrevision.descripcion}"
+                    th:data-porc-dcto="${institucionPrevision.porcDcto}"
+            ></option>
+        </select>
+    </div>
+
+    <!--    SUELDO IMPONIBLE *%AFP SELECCIONADA-->
+    <div class="mb-3">
+        <label for="montoInstPrevisional" class="form-label">Monto AFP</label>
+        <input required type="number" class="form-control" id="montoInstPrevisional" name="montoInstPrevisional" placeholder="000">
+    </div>
+
+<!--    MONTO SALUD + MONTO AFP-->
+    <div class="mb-3">
+        <label for="totalDescuento" class="form-label">Total dsctos.</label>
+        <input required type="number" class="form-control" id="totalDescuento" name="totalDescuento" placeholder="000">
+    </div>
+
+    <!--    IGUAL A SUELDO IMPONIBLE -->
+    <div class="mb-3">
+        <label for="totalHaberes" class="form-label">Total Haberes</label>
+        <input required type="number" class="form-control" id="totalHaberes" name="totalHaberes" placeholder="000">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="anticipo" class="form-label">Anticipo</label>
+        <input required type="number" class="form-control" id="anticipo" name="anticipo" placeholder="000">
+    </div>
+
+    <!--    IGUAL A SUELDO IMPONIBLE -->
+    <div class="mb-3">
+        <label for="sueldoLiquido" class="form-label">Sueldo Líquido</label>
+        <input required type="number" class="form-control" id="sueldoLiquido" name="sueldoLiquido" placeholder="000">
+    </div>
+
+
+
+    <div class="subm">
+        <button type="submit" class="boton2">Registrar Liquidación</button>
+    </div>
+</form>
+
+
+<div style="height: 100px;" class="espace">
+    <p></p>
+</div>
+
+
+<footer th:replace="~{../static/html/footer.html :: footer}"></footer>
+
+<!--    MAGIA DE JAVASCRIPT -->
+<!-- Ubica este bloque de código en el lugar apropiado en tu formulario -->
+<script th:inline="javascript">
+    // Evento que se dispara cuando cambia el valor del select de Institución de Salud
+    document.getElementById('idInstSalud').addEventListener('change', function() {
+        var sueldoImponible = parseInt(document.getElementById('sueldoImponible').value);
+        var porcDcto = parseFloat(this.options[this.selectedIndex].getAttribute('data-porc-dcto'));
+        var montoInstSalud = Math.round(sueldoImponible * (porcDcto / 100));
+        document.getElementById('montoInstSalud').value = montoInstSalud;
+        calcularTotalDescuento();
+        calcularSueldoLiquido();
+    });
+
+    // Evento que se dispara cuando cambia el valor del select de Institución Previsional (AFP)
+    document.getElementById('institucionPrevision').addEventListener('change', function() {
+        var sueldoImponible = parseInt(document.getElementById('sueldoImponible').value);
+        var porcDcto = parseFloat(this.options[this.selectedIndex].getAttribute('data-porc-dcto'));
+        var montoInstPrevisional = Math.round(sueldoImponible * (porcDcto / 100));
+        document.getElementById('montoInstPrevisional').value = montoInstPrevisional;
+        calcularTotalDescuento();
+        calcularSueldoLiquido();
+    });
+
+    function calcularTotalDescuento() {
+        var montoInstSalud = parseInt(document.getElementById('montoInstSalud').value);
+        var montoInstPrevisional = parseInt(document.getElementById('montoInstPrevisional').value);
+        var totalDescuento = montoInstSalud + montoInstPrevisional;
+        document.getElementById('totalDescuento').value = totalDescuento;
+    }
+
+    // Función para actualizar el valor de sueldoLiquido
+    function calcularSueldoLiquido() {
+        var sueldoImponible = parseInt(document.getElementById('sueldoImponible').value);
+        var totalDescuento = parseFloat(document.getElementById('totalDescuento').value);
+        var anticipo = parseInt(document.getElementById('anticipo').value);
+        var sueldoLiquido = sueldoImponible - totalDescuento - anticipo;
+        document.getElementById('sueldoLiquido').value = sueldoLiquido;
+    }
+
+    // Evento que se dispara cuando cambia el valor del sueldoImponible o anticipo
+    document.getElementById('sueldoImponible').addEventListener('change', function() {
+        var sueldoImponible = parseInt(this.value);
+        document.getElementById('totalHaberes').value = sueldoImponible;
+        calcularTotalDescuento();
+        calcularSueldoLiquido();
+    });
+
+    document.getElementById('anticipo').addEventListener('change', function() {
+        calcularSueldoLiquido();
+    });
+</script>
+
+<!-- Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

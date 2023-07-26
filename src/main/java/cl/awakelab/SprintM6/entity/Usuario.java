@@ -31,10 +31,6 @@ public class Usuario {
     @JsonManagedReference
     //@JsonIgnore
     public Perfil perfil;
-/*    @Transient
-    public String getDescripcionPerfil() {
-        return perfil.getDescripcion();
-    }*/
 
     @Column(nullable = false, length = 100)
     private String email;

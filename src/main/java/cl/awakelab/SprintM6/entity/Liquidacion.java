@@ -12,14 +12,18 @@ public class Liquidacion {
     @Id
     @Column(name="id_liquidacion",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idLiquidacion;
+    private Long idLiquidacion;
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name="id_trabajador",nullable = false)
     private Trabajador idTrabajador; //foreign key
+
     @Column(nullable = false)
     private LocalDate periodo;
+
     @Column(name="sueldo_imponible",nullable = false)
     private int sueldoImponible;
+
     @Column(name="sueldo_liquido",nullable = false)
     private int sueldoLiquido;
 
@@ -36,10 +40,13 @@ public class Liquidacion {
 
     @Column(name="monto_inst_previsional",nullable = false)
     private int montoInstPrevisional;
+
     @Column(name="total_descuento",nullable = false)
     private int totalDescuento;
+
     @Column(name="total_haberes",nullable = false)
     private int totalHaberes;
+
     @Column(nullable = false)
     private int anticipo;
 
